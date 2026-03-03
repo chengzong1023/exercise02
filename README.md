@@ -26,13 +26,13 @@
 ### 📈 視覺化成果
 
 #### 1. 坐標比較地圖
-![坐標比較地圖](outputs/coordinate_comparison_with_crs.png)
+![坐標比較地圖](coordinate_comparison_with_crs.png)
 
 #### 2. 距離統計分析
-![距離分析](outputs/distance_analysis_english.png)
+![距離分析](distance_analysis_english.png)
 
 #### 3. 詳細數據表格
-[查看完整CSV資料](outputs/coordinate_comparison_detailed_english.csv)
+[查看完整CSV資料](coordinate_comparison_detailed_english.csv)
 
 ### 📋 統計摘要
 | 指標 | 數值 |
