@@ -6,19 +6,67 @@
 - 獲取全台即時氣象數據
 - 使用 Folium 進行地圖視覺化
 - 依氣溫進行分色標示
+- **坐標系統比較分析 (TWD97 vs WGS84)**
+
+## 🗺️ 坐標系統比較分析 (CRS Compare)
+
+### 分析概覽
+本研究分析了中央氣象署API中每個測站的兩組坐標系統，比較TWD97與WGS84之間的差異。
+
+### 📊 主要發現
+- **分析測站數量**: 336個氣象站
+- **平均坐標偏移**: 851.29公尺
+- **偏移範圍**: 670.51 - 964.21公尺
+- **標準差**: 12.99公尺 (顯示高度一致性)
+
+### 🎯 坐標系統說明
+- **🔵 TWD97 (藍色圓形)**: 台灣官方測量基準，政府機構標準
+- **🔺 WGS84 (紅色三角形)**: GPS標準坐標系統，全球定位參考
+
+### 📈 視覺化成果
+
+#### 1. 坐標比較地圖
+![坐標比較地圖](outputs/coordinate_comparison_with_crs.png)
+
+#### 2. 距離統計分析
+![距離分析](outputs/distance_analysis_english.png)
+
+#### 3. 詳細數據表格
+[查看完整CSV資料](outputs/coordinate_comparison_detailed_english.csv)
+
+### 📋 統計摘要
+| 指標 | 數值 |
+|------|------|
+| 總測站數 | 336 |
+| 平均距離 | 851.29 公尺 |
+| 中位數距離 | 851.94 公尺 |
+| 最小距離 | 670.51 公尺 |
+| 最大距離 | 964.21 公尺 |
+| 標準差 | 12.99 公尺 |
+
+### 🔍 技術分析
+- 兩種坐標系統間存在**系統性偏移**
+- 偏移量相當**一致**，非隨機誤差
+- TWD97與WGS84在台灣地區相差約**850公尺**
 
 ## 專案結構
 ```
-class_1/
+exercise2/
 ├── data/                   # 原始資料目錄
 ├── outputs/                # 分析結果輸出
-│   ├── weather_stations_*.csv    # 氣象站資料
-│   ├── weather_map_*.html        # 氣象地圖
-│   └── weather_heatmap_*.html    # 溫度熱力圖
+│   ├── coordinate_comparison_*.png     # 坐標比較地圖
+│   ├── distance_analysis_*.png         # 距離統計分析
+│   ├── coordinate_comparison_detailed_*.csv  # 詳細坐標資料
+│   ├── weather_stations_*.csv          # 氣象站資料
+│   ├── weather_map_*.html              # 氣象地圖
+│   └── weather_heatmap_*.html          # 溫度熱力圖
 ├── scripts/                # 分析腳本
-│   ├── cwa_weather_api.py        # CWA API 串接
-│   ├── debug_api.py              # API 調試工具
-│   └── weather_map_visualization.py  # 地圖視覺化
+│   ├── crs_compare.py              # 坐標系統比較分析 (中文版)
+│   ├── crs_compare_english.py       # 坐標系統比較分析 (英文版)
+│   ├── check_coordinate_systems.py  # 坐標系統檢查工具
+│   ├── cwa_weather_api.py           # CWA API 串接
+│   ├── debug_api.py                 # API 調試工具
+│   └── weather_map_visualization.py # 地圖視覺化
 ├── .env                    # API 金鑰設定
 ├── .gitignore              # Git 忽略檔案
 ├── requirements.txt        # Python 套件依賴
